@@ -33,7 +33,7 @@ export default function Hero() {
             <Link to="/scan">
               <BrutalButton color="pink" size="lg">
                 <QrCode size={22} strokeWidth={3} />
-                Scan QR (Demo)
+                Ngantri Dulu, Brok!
               </BrutalButton>
             </Link>
 
