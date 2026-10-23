@@ -65,7 +65,7 @@ export default function ScanQR() {
                 <p className="text-brutal-white font-bold mt-4 bg-brutal-black/20 inline-block px-2 py-1">A/N: {ticket.name}</p>
               </div>
               
-              <Link to="/demo">
+              <Link to="/live">
                 <BrutalButton color="yellow" className="w-full">
                   Lihat Layar Antrian
                 </BrutalButton>

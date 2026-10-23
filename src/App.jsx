@@ -9,6 +9,7 @@ import ScanQR from "./pages/ScanQR";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
 import DisplayQR from "./pages/DisplayQR";
+import LiveQueue from "./pages/LiveQueue";
 
 export default function App() {
   const location = useLocation();
@@ -100,6 +101,19 @@ export default function App() {
                   exit={{ opacity: 0 }}
                 >
                   <DisplayQR />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/live"
+              element={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <LiveQueue />
                 </motion.div>
               }
             />
