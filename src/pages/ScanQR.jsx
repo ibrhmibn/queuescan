@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import BrutalCard from '../components/BrutalCard';
 import BrutalButton from '../components/BrutalButton';
 import { useQueue } from '../hooks/useQueue';
+import { Sunburst, RetroFlower } from '../components/Ornaments';
 
 export default function ScanQR() {
   const [name, setName] = useState('');
@@ -29,8 +30,14 @@ export default function ScanQR() {
   };
 
   return (
-    <div className="min-h-screen bg-brutal-yellow flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-6">
+    <div className="min-h-screen bg-brutal-yellow relative overflow-hidden flex flex-col items-center justify-center p-4">
+      
+      {/* Background Ornaments */}
+      <Sunburst className="-top-20 -left-20 rotate-45" size={400} color="#FF8FAB" />
+      <RetroFlower className="bottom-10 right-5 rotate-12" size={120} color="#3B6FE8" />
+      <RetroFlower className="top-20 right-10 -rotate-12" size={80} color="#5DB77B" />
+
+      <div className="w-full max-w-md space-y-6 relative z-10">
         <Link to="/">
           <BrutalButton color="white" size="sm">
             <ArrowLeft size={16} strokeWidth={3} /> Kembali
@@ -73,7 +80,6 @@ export default function ScanQR() {
               
               <div className="border-4 border-brutal-black bg-brutal-blue p-6 shadow-brutal">
                 <p className="text-brutal-white font-bold uppercase tracking-widest text-sm mb-2">Nomor Antrian</p>
-                {/* Tambahin fallback ? dan ?? biar kalo kosong ga blank total */}
                 <p className="font-heading text-8xl text-brutal-white text-stroke leading-none">
                   {ticket?.number || '-'}
                 </p>

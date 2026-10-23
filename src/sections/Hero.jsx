@@ -41,7 +41,7 @@ export default function Hero() {
             <Link to="/live">
               <BrutalButton color="white" size="lg">
                 <Play size={22} strokeWidth={3} fill="#000" />
-                Antrian lu disini, yak
+                Antrian lu di sini
               </BrutalButton>
             </Link>
           </div>

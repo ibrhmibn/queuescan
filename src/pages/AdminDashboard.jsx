@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import BrutalCard from '../components/BrutalCard';
 import BrutalButton from '../components/BrutalButton';
 import { useQueue } from '../hooks/useQueue';
+import { Sunburst, RetroStripes, RetroFlower } from '../components/Ornaments';
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const isLogged = sessionStorage.getItem('isAdminLoggedIn');
     if (!isLogged) {
-      navigate('/login'); // Tendang ke halaman login kalau belum
+      navigate('/login');
     }
   }, [navigate]);
 
@@ -26,8 +27,14 @@ export default function AdminDashboard() {
   const waitingQueue = queue.filter(q => q.status === 'waiting');
 
   return (
-    <div className="min-h-screen bg-brutal-cream flex flex-col items-center p-4 md:p-8">
-      <div className="w-full max-w-5xl flex justify-between mb-6">
+    <div className="min-h-screen bg-brutal-cream relative overflow-hidden flex flex-col items-center p-4 md:p-8">
+      
+      {/* Background Ornaments */}
+      <Sunburst className="-bottom-20 -right-20 -rotate-12" size={500} color="#3B6FE8" />
+      <RetroStripes className="top-10 left-10" width={300} />
+      <RetroFlower className="top-40 left-[20%] rotate-45" size={60} color="#FF8FAB" />
+
+      <div className="w-full max-w-5xl flex justify-between mb-6 relative z-10">
         <Link to="/">
           <BrutalButton color="white" size="sm">
             <ArrowLeft size={16} strokeWidth={3} /> Ke Home
@@ -45,14 +52,13 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="text-center mb-8">
+      <div className="text-center mb-8 relative z-10">
         <h1 className="text-4xl md:text-5xl bg-brutal-blue text-brutal-white text-stroke px-4 py-2 border-4 border-brutal-black shadow-brutal -rotate-1 inline-block">
           Dashboard Admin
         </h1>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6 w-full max-w-5xl">
-        {/* ... (kode kartu sedang dilayani sama persis kayak sebelumnya) ... */}
+      <div className="grid md:grid-cols-3 gap-6 w-full max-w-5xl relative z-10">
         <div className="md:col-span-1 space-y-6">
           <BrutalCard color="yellow" className="text-center space-y-4">
             <h2 className="text-xl bg-brutal-white border-3 border-brutal-black px-2 py-1 inline-block">Sedang Dilayani</h2>

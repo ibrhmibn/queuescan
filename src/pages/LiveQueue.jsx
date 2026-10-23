@@ -4,16 +4,21 @@ import { motion } from 'framer-motion';
 import BrutalCard from '../components/BrutalCard';
 import BrutalButton from '../components/BrutalButton';
 import { useQueue } from '../hooks/useQueue';
+import { Sunburst, RetroStripes } from '../components/Ornaments';
 
 export default function LiveQueue() {
   const { currentServing, queue } = useQueue();
   
-  // Ngitung sisa antrian yang lagi nunggu
   const waitingCount = queue.filter(q => q.status === 'waiting').length;
 
   return (
-    <div className="min-h-screen bg-brutal-blue flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-3xl mb-6">
+    <div className="min-h-screen bg-brutal-blue relative overflow-hidden flex flex-col items-center justify-center p-4">
+      
+      {/* Background Ornaments */}
+      <Sunburst className="-top-32 -left-32 rotate-90" size={600} color="#FFD400" />
+      <RetroStripes className="-bottom-10 -right-10 rotate-180" width={400} />
+
+      <div className="w-full max-w-3xl mb-6 relative z-10">
         <Link to="/scan">
           <BrutalButton color="white" size="sm">
             <ArrowLeft size={16} strokeWidth={3} /> Kembali
@@ -21,7 +26,7 @@ export default function LiveQueue() {
         </Link>
       </div>
 
-      <BrutalCard color="white" className="w-full max-w-3xl text-center space-y-8 py-12">
+      <BrutalCard color="white" className="w-full max-w-3xl text-center space-y-8 py-12 relative z-10">
         <div className="flex items-center justify-center gap-3">
           <MonitorSmartphone size={48} className="text-brutal-blue" />
           <h1 className="text-4xl md:text-5xl text-brutal-black">Layar Antrian</h1>
