@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./sections/Hero";
 import Features from "./sections/Features";
-import QueueDemo from "./pages/QueueDemo";
 import ScanQR from "./pages/ScanQR";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
@@ -20,103 +19,17 @@ export default function App() {
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
-            {/* Halaman Utama (Landing Page) */}
-            <Route
-              path="/"
-              element={
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Hero />
-                  <Features />
-                </motion.div>
-              }
-            />
-
-            {/* Halaman Demo Antrian */}
-            <Route
-              path="/demo"
-              element={
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <QueueDemo />
-                </motion.div>
-              }
-            />
-
-            {/* Halaman Scan QR (Customer) */}
-            <Route
-              path="/scan"
-              element={
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ScanQR />
-                </motion.div>
-              }
-            />
-
-            {/* Halaman Dashboard Admin */}
-            <Route
-              path="/admin"
-              element={
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <AdminDashboard />
-                </motion.div>
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <AdminLogin />
-                </motion.div>
-              }
-            />
-            <Route
-              path="/display-qr"
-              element={
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <DisplayQR />
-                </motion.div>
-              }
-            />
-            <Route
-              path="/live"
-              element={
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <LiveQueue />
-                </motion.div>
-              }
-            />
+            <Route path="/" element={
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>
+                <Hero />
+                <Features />
+              </motion.div>
+            } />
+            <Route path="/scan" element={<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}><ScanQR /></motion.div>} />
+            <Route path="/admin" element={<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}><AdminDashboard /></motion.div>} />
+            <Route path="/login" element={<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><AdminLogin /></motion.div>} />
+            <Route path="/display-qr" element={<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><DisplayQR /></motion.div>} />
+            <Route path="/live" element={<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}><LiveQueue /></motion.div>} />
           </Routes>
         </AnimatePresence>
       </main>

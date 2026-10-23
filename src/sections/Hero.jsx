@@ -37,8 +37,8 @@ export default function Hero() {
               </BrutalButton>
             </Link>
 
-            {/* Tombol Layar Antrian (Simulasi) */}
-            <Link to="/demo">
+            {/* Tombol Layar Antrian */}
+            <Link to="/live">
               <BrutalButton color="white" size="lg">
                 <Play size={22} strokeWidth={3} fill="#000" />
                 Layar Antrian
